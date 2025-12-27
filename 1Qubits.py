@@ -1,0 +1,28 @@
+# Import necessary components
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import Statevector
+from qiskit.visualization import plot_bloch_multivector
+
+# Create a circuit with one qubit
+qc = QuantumCircuit(1)
+
+# --- Step 1: Create Superposition ---
+# Apply a Hadamard gate to put the qubit in the state (|0> + |1>)/sqrt(2)
+qc.h(0)
+
+# Get the statevector and visualize on the Bloch sphere
+state_after_h = Statevector(qc)
+print("State after Hadamard gate:")
+print(state_after_h.draw('text'))
+plot_bloch_multivector(state_after_h, title="After H-gate").show()
+
+# --- Step 2: Manipulate Superposition ---
+# Apply a Z-gate, which flips the phase of the |1> component.
+# The state becomes (|0> - |1>)/sqrt(2)codePython
+qc.z(0)
+
+# Get the new statevector and visualize
+state_after_z = Statevector(qc)
+print("\nState after Z-gate:")
+print(state_after_z.draw('text'))
+plot_bloch_multivector(state_after_z, title="After Z-gate").show()
