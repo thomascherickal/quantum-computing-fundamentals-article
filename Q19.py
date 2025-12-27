@@ -104,7 +104,6 @@ result = minimize(
 
 print("\n--- Optimization Complete ---")
 print(f"Success: {result.success}")
-print(f"Optimal Parameters: {result.x}")
 print(f"VQE Final Energy:   {result.fun:.4f}")
 print(f"Exact Target Energy: {exact_eigenvalue:.4f}")
 
